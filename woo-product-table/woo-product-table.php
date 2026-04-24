@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: WooCommerce Product Table
- * Plugin URI:  https://example.com/woo-product-table
+ * Plugin URI:  https://github.com/chandananvithahr/woo-product-table
  * Description: Display WooCommerce products in a sortable, filterable table with AJAX add-to-cart support.
  * Version:     1.0.0
- * Author:      Your Name
- * Author URI:  https://example.com
+ * Author:      Chandan Anvitha
+ * Author URI:  https://github.com/chandananvithahr
  * License:     GPL-2.0+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: woo-product-table

@@ -1,5 +1,5 @@
 === WooCommerce Product Table ===
-Contributors:      yourname
+Contributors:      chandananvithahrwp
 Tags:              woocommerce, product table, sortable table, filterable table, add to cart
 Requires at least: 5.8
 Tested up to:      6.5
@@ -30,7 +30,7 @@ Display WooCommerce products in a beautiful, sortable, filterable table with AJA
 
 = Pro Features =
 
-Upgrade to [WooCommerce Product Table Pro](https://example.com/woo-product-table-pro) to unlock:
+Upgrade to [WooCommerce Product Table Pro](https://github.com/chandananvithahr/woo-product-table#pro) to unlock:
 
 * **CSV export** — download the current product list as a spreadsheet
 * **Custom columns** — add any product meta field, ACF field, or custom taxonomy as a column

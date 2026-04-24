@@ -200,7 +200,7 @@ class WPT_Admin {
                         <span class="wpt-pro-badge">PRO</span>
                         <strong><?php esc_html_e( 'Upgrade to Pro', 'woo-product-table' ); ?></strong> —
                         <?php esc_html_e( 'Unlock CSV export, custom columns drag-and-drop ordering, and advanced pagination controls.', 'woo-product-table' ); ?>
-                        <a href="https://example.com/woo-product-table-pro" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/chandananvithahr/woo-product-table#pro" target="_blank" rel="noopener noreferrer">
                             <?php esc_html_e( 'Learn more →', 'woo-product-table' ); ?>
                         </a>
                     </p>
