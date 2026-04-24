@@ -1,0 +1,519 @@
+/**
+ * WooCommerce Product Table — front-end stylesheet
+ * Minimal, responsive, theme-compatible styles.
+ * Uses CSS custom properties so themes can override easily.
+ */
+
+/* ── Custom properties ─────────────────────────────────────────────────────── */
+:root {
+    --wpt-font-size:       14px;
+    --wpt-border-color:    #e2e4e7;
+    --wpt-header-bg:       #f8f9fa;
+    --wpt-header-color:    #1d2327;
+    --wpt-row-hover-bg:    #f0f6fc;
+    --wpt-btn-bg:          #7f54b3;
+    --wpt-btn-color:       #ffffff;
+    --wpt-btn-hover-bg:    #6a45a0;
+    --wpt-success-color:   #008a20;
+    --wpt-error-color:     #cc1818;
+    --wpt-badge-in-bg:     #d1fae5;
+    --wpt-badge-in-color:  #065f46;
+    --wpt-badge-out-bg:    #fee2e2;
+    --wpt-badge-out-color: #991b1b;
+    --wpt-radius:          4px;
+    --wpt-shadow:          0 1px 3px rgba(0, 0, 0, 0.08);
+    --wpt-transition:      0.15s ease;
+}
+
+/* ── Wrapper ───────────────────────────────────────────────────────────────── */
+.wpt-wrapper {
+    position:   relative;
+    font-size:  var(--wpt-font-size);
+    line-height: 1.5;
+    color:      inherit;
+    margin:     0 0 2em;
+}
+
+/* ── Filter bar ────────────────────────────────────────────────────────────── */
+.wpt-filter-bar {
+    display:        flex;
+    flex-wrap:      wrap;
+    align-items:    center;
+    gap:            10px;
+    margin-bottom:  16px;
+    padding:        12px 14px;
+    background:     var(--wpt-header-bg);
+    border:         1px solid var(--wpt-border-color);
+    border-radius:  var(--wpt-radius);
+}
+
+.wpt-filter-group {
+    display: flex;
+    align-items: center;
+}
+
+.wpt-filter-group--inline {
+    gap: 6px;
+}
+
+.wpt-search,
+.wpt-category-filter {
+    padding:        6px 10px;
+    border:         1px solid var(--wpt-border-color);
+    border-radius:  var(--wpt-radius);
+    font-size:      var(--wpt-font-size);
+    background:     #fff;
+    min-width:      180px;
+    transition:     border-color var(--wpt-transition), box-shadow var(--wpt-transition);
+}
+
+.wpt-search:focus,
+.wpt-category-filter:focus {
+    outline:      none;
+    border-color: var(--wpt-btn-bg);
+    box-shadow:   0 0 0 2px rgba(127, 84, 179, 0.2);
+}
+
+.wpt-checkbox-label {
+    display:     flex;
+    align-items: center;
+    gap:         6px;
+    cursor:      pointer;
+    white-space: nowrap;
+    font-size:   var(--wpt-font-size);
+}
+
+.wpt-instock-filter {
+    width:  16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--wpt-btn-bg);
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────────────── */
+.wpt-btn {
+    display:         inline-flex;
+    align-items:     center;
+    justify-content: center;
+    padding:         6px 14px;
+    border:          1px solid transparent;
+    border-radius:   var(--wpt-radius);
+    background:      var(--wpt-btn-bg);
+    color:           var(--wpt-btn-color);
+    font-size:       var(--wpt-font-size);
+    font-weight:     600;
+    cursor:          pointer;
+    text-decoration: none;
+    transition:      background var(--wpt-transition), transform var(--wpt-transition);
+    white-space:     nowrap;
+    line-height:     1.4;
+}
+
+.wpt-btn:hover,
+.wpt-btn:focus {
+    background:      var(--wpt-btn-hover-bg);
+    color:           var(--wpt-btn-color);
+    text-decoration: none;
+    outline:         none;
+}
+
+.wpt-btn:active {
+    transform: translateY(1px);
+}
+
+.wpt-btn:focus-visible {
+    box-shadow: 0 0 0 3px rgba(127, 84, 179, 0.35);
+}
+
+.wpt-btn--clear {
+    background:   transparent;
+    border-color: var(--wpt-border-color);
+    color:        #555;
+    font-weight:  400;
+}
+
+.wpt-btn--clear:hover {
+    background: #f0f0f1;
+    color:      #333;
+}
+
+.wpt-btn--export {
+    background: #2271b1;
+}
+
+.wpt-btn--export:hover {
+    background: #135e96;
+}
+
+/* Add-to-cart button states */
+.wpt-atc-btn.wpt-loading {
+    opacity: 0.7;
+    cursor:  not-allowed;
+}
+
+.wpt-atc-btn.wpt-added {
+    background: var(--wpt-success-color);
+}
+
+/* ── Pro notice ────────────────────────────────────────────────────────────── */
+.wpt-pro-notice {
+    display:       flex;
+    align-items:   center;
+    flex-wrap:     wrap;
+    gap:           6px;
+    margin-bottom: 10px;
+    padding:       8px 12px;
+    background:    #fff8e1;
+    border:        1px solid #f0a500;
+    border-radius: var(--wpt-radius);
+    font-size:     13px;
+}
+
+.wpt-pro-badge {
+    background:     #f0a500;
+    color:          #fff;
+    font-size:      10px;
+    font-weight:    700;
+    padding:        2px 6px;
+    border-radius:  3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.wpt-pro-notice a {
+    color:           var(--wpt-btn-bg);
+    font-weight:     600;
+    text-decoration: underline;
+}
+
+/* ── Export bar ────────────────────────────────────────────────────────────── */
+.wpt-export-bar {
+    margin-bottom: 10px;
+    text-align:    right;
+}
+
+/* ── Table wrap ────────────────────────────────────────────────────────────── */
+.wpt-table-wrap {
+    position:      relative;
+    overflow-x:    auto;
+    border:        1px solid var(--wpt-border-color);
+    border-radius: var(--wpt-radius);
+    box-shadow:    var(--wpt-shadow);
+}
+
+/* Loading overlay */
+.wpt-table-wrap.wpt-loading::after {
+    content:          '';
+    position:         absolute;
+    inset:            0;
+    background:       rgba(255, 255, 255, 0.6);
+    z-index:          10;
+    border-radius:    var(--wpt-radius);
+}
+
+.wpt-loader {
+    position:         absolute;
+    top:              50%;
+    left:             50%;
+    transform:        translate(-50%, -50%);
+    z-index:          20;
+    width:            36px;
+    height:           36px;
+    border:           4px solid var(--wpt-border-color);
+    border-top-color: var(--wpt-btn-bg);
+    border-radius:    50%;
+    animation:        wpt-spin 0.7s linear infinite;
+}
+
+@keyframes wpt-spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ── Table ─────────────────────────────────────────────────────────────────── */
+.wpt-table {
+    width:           100%;
+    border-collapse: collapse;
+    font-size:       var(--wpt-font-size);
+    background:      #fff;
+    table-layout:    auto;
+}
+
+/* ── Table head ────────────────────────────────────────────────────────────── */
+.wpt-table thead tr {
+    background:    var(--wpt-header-bg);
+    border-bottom: 2px solid var(--wpt-border-color);
+}
+
+.wpt-table th.wpt-col {
+    padding:     10px 12px;
+    text-align:  left;
+    font-weight: 600;
+    color:       var(--wpt-header-color);
+    white-space: nowrap;
+    user-select: none;
+}
+
+/* Sortable header hover / focus */
+.wpt-table th.wpt-sortable {
+    cursor: pointer;
+    transition: background var(--wpt-transition), color var(--wpt-transition);
+}
+
+.wpt-table th.wpt-sortable:hover {
+    background: #eef0f3;
+    color:      var(--wpt-btn-bg);
+}
+
+.wpt-table th.wpt-sortable:focus-visible {
+    outline:      2px solid var(--wpt-btn-bg);
+    outline-offset: -2px;
+}
+
+.wpt-table th.wpt-sorted {
+    color:           var(--wpt-btn-bg);
+    border-bottom:   2px solid var(--wpt-btn-bg);
+}
+
+.wpt-sort-icon {
+    display:      inline-block;
+    margin-left:  4px;
+    font-size:    12px;
+    opacity:      0.6;
+    transition:   opacity var(--wpt-transition);
+}
+
+.wpt-table th.wpt-sorted .wpt-sort-icon,
+.wpt-table th.wpt-sortable:hover .wpt-sort-icon {
+    opacity: 1;
+}
+
+/* ── Table body ────────────────────────────────────────────────────────────── */
+.wpt-table tbody tr.wpt-row {
+    border-bottom: 1px solid var(--wpt-border-color);
+    transition:    background var(--wpt-transition);
+}
+
+.wpt-table tbody tr.wpt-row:last-child {
+    border-bottom: none;
+}
+
+.wpt-table tbody tr.wpt-row:hover {
+    background: var(--wpt-row-hover-bg);
+}
+
+/* Striped rows */
+.wpt-table tbody tr.wpt-row:nth-child(even) {
+    background: #fafafa;
+}
+
+.wpt-table tbody tr.wpt-row:nth-child(even):hover {
+    background: var(--wpt-row-hover-bg);
+}
+
+.wpt-table td.wpt-cell {
+    padding:        10px 12px;
+    vertical-align: middle;
+}
+
+/* ── Column-specific widths ────────────────────────────────────────────────── */
+.wpt-col--image       { width: 64px; }
+.wpt-col--name        { min-width: 160px; }
+.wpt-col--price       { width: 110px; white-space: nowrap; }
+.wpt-col--stock       { width: 110px; }
+.wpt-col--quantity    { width: 80px; }
+.wpt-col--add_to_cart { width: 140px; }
+
+/* ── Product image ─────────────────────────────────────────────────────────── */
+.wpt-cell--image {
+    padding: 8px 12px;
+}
+
+.wpt-product-image {
+    display:       block;
+    width:         50px;
+    height:        50px;
+    object-fit:    cover;
+    border-radius: var(--wpt-radius);
+    border:        1px solid var(--wpt-border-color);
+}
+
+/* ── Product name link ─────────────────────────────────────────────────────── */
+.wpt-product-link {
+    color:           inherit;
+    text-decoration: none;
+    font-weight:     500;
+}
+
+.wpt-product-link:hover {
+    color:           var(--wpt-btn-bg);
+    text-decoration: underline;
+}
+
+/* ── Stock badge ───────────────────────────────────────────────────────────── */
+.wpt-badge {
+    display:        inline-block;
+    padding:        2px 8px;
+    border-radius:  20px;
+    font-size:      12px;
+    font-weight:    600;
+    white-space:    nowrap;
+}
+
+.wpt-badge--instock {
+    background: var(--wpt-badge-in-bg);
+    color:      var(--wpt-badge-in-color);
+}
+
+.wpt-badge--outofstock {
+    background: var(--wpt-badge-out-bg);
+    color:      var(--wpt-badge-out-color);
+}
+
+/* ── Quantity input ────────────────────────────────────────────────────────── */
+.wpt-qty {
+    width:        56px;
+    padding:      4px 6px;
+    border:       1px solid var(--wpt-border-color);
+    border-radius: var(--wpt-radius);
+    font-size:    var(--wpt-font-size);
+    text-align:   center;
+    transition:   border-color var(--wpt-transition);
+}
+
+.wpt-qty:focus {
+    outline:      none;
+    border-color: var(--wpt-btn-bg);
+    box-shadow:   0 0 0 2px rgba(127, 84, 179, 0.2);
+}
+
+/* ── No-products cell ──────────────────────────────────────────────────────── */
+.wpt-no-products {
+    text-align: center;
+    padding:    24px;
+    color:      #777;
+    font-style: italic;
+}
+
+/* ── Messages ──────────────────────────────────────────────────────────────── */
+.wpt-messages {
+    display:       none;
+    margin-top:    10px;
+    padding:       10px 14px;
+    border-radius: var(--wpt-radius);
+    font-size:     var(--wpt-font-size);
+    font-weight:   500;
+}
+
+.wpt-messages--success {
+    background: #d1fae5;
+    color:      var(--wpt-success-color);
+    border:     1px solid #6ee7b7;
+}
+
+.wpt-messages--error {
+    background: #fee2e2;
+    color:      var(--wpt-error-color);
+    border:     1px solid #fca5a5;
+}
+
+/* ── Pagination (Pro) ──────────────────────────────────────────────────────── */
+.wpt-pagination {
+    display:    flex;
+    flex-wrap:  wrap;
+    gap:        6px;
+    margin-top: 14px;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.wpt-page-btn {
+    padding:        5px 11px;
+    border:         1px solid var(--wpt-border-color);
+    border-radius:  var(--wpt-radius);
+    background:     #fff;
+    color:          #555;
+    font-size:      var(--wpt-font-size);
+    cursor:         pointer;
+    transition:     background var(--wpt-transition), color var(--wpt-transition);
+}
+
+.wpt-page-btn:hover {
+    background: var(--wpt-header-bg);
+    color:      var(--wpt-btn-bg);
+}
+
+.wpt-page-btn--active {
+    background:   var(--wpt-btn-bg);
+    border-color: var(--wpt-btn-bg);
+    color:        #fff;
+    font-weight:  700;
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .wpt-filter-bar {
+        flex-direction: column;
+        align-items:    stretch;
+    }
+
+    .wpt-search,
+    .wpt-category-filter {
+        width:     100%;
+        min-width: 0;
+    }
+
+    .wpt-filter-group {
+        width: 100%;
+    }
+
+    .wpt-btn--clear {
+        width:       100%;
+        text-align:  center;
+        justify-content: center;
+    }
+
+    /* Hide less critical columns on small screens */
+    .wpt-col--image,
+    .wpt-cell--image {
+        display: none;
+    }
+
+    .wpt-col--stock,
+    .wpt-cell--stock {
+        display: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .wpt-col--quantity,
+    .wpt-cell--quantity {
+        display: none;
+    }
+}
+
+/* ── Accessibility: prefers reduced motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .wpt-loader {
+        animation: none;
+        border:    4px solid var(--wpt-btn-bg);
+    }
+
+    .wpt-table tbody tr.wpt-row,
+    .wpt-btn,
+    .wpt-table th.wpt-sortable,
+    .wpt-sort-icon,
+    .wpt-qty,
+    .wpt-search,
+    .wpt-category-filter {
+        transition: none;
+    }
+}
+
+/* ── High contrast support ─────────────────────────────────────────────────── */
+@media (forced-colors: active) {
+    .wpt-badge,
+    .wpt-btn,
+    .wpt-table th.wpt-sorted {
+        forced-color-adjust: none;
+    }
+}
