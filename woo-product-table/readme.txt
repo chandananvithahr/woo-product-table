@@ -30,7 +30,7 @@ Display WooCommerce products in a beautiful, sortable, filterable table with AJA
 
 = Pro Features =
 
-Upgrade to [WooCommerce Product Table Pro](https://github.com/chandananvithahr/woo-product-table#pro) to unlock:
+Upgrade to [WooCommerce Product Table Pro](https://chandananvithahr.github.io/woo-product-table-site/#pricing) to unlock:
 
 * **CSV export** — download the current product list as a spreadsheet
 * **Custom columns** — add any product meta field, ACF field, or custom taxonomy as a column
